@@ -32,6 +32,7 @@ class LoRATrainer(Trainer):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
+    # 增加了保存模型的方法
     def save_model(self, output_dir=None, _internal_call=False):
         output_dir = output_dir if output_dir is not None else self.args.output_dir
         os.makedirs(output_dir, exist_ok=True)
