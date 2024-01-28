@@ -4,6 +4,7 @@ from typing import Dict, List
 
 
 def sanity_check(tokens: List[int], target: List[int], tokenizer: PreTrainedTokenizer):
+    # sanity check完整性检查，健全性检查
     print("Sanity Check >>>>>>>>>>>>>")
     for t, m in zip(tokens, target):
         decoded = tokenizer.tokenizer.index_special_tokens[t] \
