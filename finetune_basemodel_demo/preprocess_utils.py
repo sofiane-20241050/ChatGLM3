@@ -25,14 +25,14 @@ class InputOutputDataset(Dataset):
         self.max_source_length = max_source_length
         self.max_target_length = max_target_length
         self.max_seq_length = max_source_length + max_target_length + 1
-        self.data = data
+        self.data = data #data是一个字典的列表，每一条字典样本形如{"context": "hello", "target": "hi,I am ChatGLM3"}
 
     def __len__(self):
         return len(self.data)
 
     def __getitem__(self, i) -> dict:
         data_item = self.data[i]
-
+        
         a_ids = self.tokenizer.encode(text=data_item['context'], add_special_tokens=True, truncation=True,
                                       max_length=self.max_source_length)
         b_ids = self.tokenizer.encode(text=data_item['target'], add_special_tokens=False, truncation=True,
