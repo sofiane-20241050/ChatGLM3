@@ -34,7 +34,7 @@ from transformers import (
     Seq2SeqTrainingArguments,
     set_seed,
 )
-from trainer import LoRATrainer
+from trainer import LoRATrainer  # train.py中所定义
 from arguments import ModelArguments, DataTrainingArguments
 from peft import get_peft_model, LoraConfig, TaskType
 from preprocess_utils import sanity_check, InputOutputDataset
