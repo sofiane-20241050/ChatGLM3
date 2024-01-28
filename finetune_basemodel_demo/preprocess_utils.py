@@ -39,7 +39,7 @@ class InputOutputDataset(Dataset):
                                       max_length=self.max_target_length)
 
         context_length = len(a_ids)
-        input_ids = a_ids + b_ids + [self.tokenizer.eos_token_id]
+        input_ids = a_ids + b_ids + [self.tokenizer.eos_token_id]  # 长度为max_seq_length
         labels = [self.tokenizer.pad_token_id] * context_length + b_ids + [self.tokenizer.eos_token_id]
 
         pad_len = self.max_seq_length - len(input_ids)
